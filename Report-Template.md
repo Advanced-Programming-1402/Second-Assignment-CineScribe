@@ -13,6 +13,7 @@ You can reach your goal by entering the correct values. For this, I have left a 
 
 * for  useig api  i use this site:
   >https://api-ninjas.com/api/celebrity
+  
   >https://omdbapi.com
 * GUI from javax
 
