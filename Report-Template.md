@@ -1,27 +1,28 @@
-# Project Title
+# MICHEEL JACKSON
 
-Simple overview of use/purpose.
+for show a simple data of Movie or Actor
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+Using the project, you can get useful information. In this project, I will show your requested information using window ().
+You can reach your goal by entering the correct values. For this, I have left a small comment for you.
 
 ## Getting Started
 
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
+* for  useig api  i use this site:
+  >https://api-ninjas.com/api/celebrity
+  >https://omdbapi.com
+* GUI from javax
+
 * ex. Windows 10
 
-### Installing
-
-* How/where to download your program
-* Any modifications needed to be made to files/folders
 
 ### Executing program
 
 * How to run the program
-* Step-by-step bullets
+* Step-by-step bullet
 ```
 code blocks for commands
 ```
