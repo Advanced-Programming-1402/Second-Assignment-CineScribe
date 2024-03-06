@@ -12,35 +12,84 @@ You can reach your goal by entering the correct values. For this, I have left a 
 ### Dependencies
 
 * for  useig api  i use this site:
-  >https://api-ninjas.com/api/celebrity
   
-  >https://omdbapi.com
-* GUI from javax
+  [For JSON celebrity](https://api-ninjas.com/api/celebrity)
+  
+  [for JSON Movie](https://omdbapi.com)
+* GUI:
 
-* ex. Windows 10
+>import javax.swing.*;
 
+>import java.awt.*;
+
+JSON
+>import org.json.JSONArray;
+
+
+>import org.json.JSONObject;
+
+
+
+*  Windows 10
+
+  
 
 ### Executing program
 
-* How to run the program
-* Step-by-step bullet
-```
-code blocks for commands
-```
+After running your program, a window will open where you can enter the category of information you want.
+
+After that, you enter the section related to that category. With this login, you can give us what you want as input and we will show you the answer.
+
+### Features that exist in each category
+##### *MOVIE*
+* ImdbVotes
+  
+* Rating
+  
+* Rating
+  
+* Actor
+
+* Runtime
+
+##### *celebrity*
+
+
+*
+
+* netWorth
+
+* Alive OR Death
+
+* Dat of Death 
 
 ## Help
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+This program that I wrote is very basic. Because I had little time and I was busy with university exams. To run the program correctly, be sure to enter exactly according to the instructions I wrote.
+
+>Movie or Clebrity
+*Movie
+>Runtime
+* For Rating
+>0 -> IMDB
+>1 ->  
+>2 ->
+:
+>ImdbVotes
+
+>Actor
+
+* Clebrity
+>Alive
+
+>NetWhot
+
+>Date of death
 
 ## Authors
 
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+*Rouzbeh Askari  
+> github ->@rouzbeh1384
 
 ## Version History
 
