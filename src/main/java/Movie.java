@@ -1,3 +1,5 @@
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -5,7 +7,7 @@ import java.net.URLConnection;
 import java.io.BufferedReader;
 import java.util.ArrayList;
 public class Movie {
-    public static final String API_KEY = "Your API_KEY";   // TODO --> add your api key about Movie here
+    public static final String API_KEY = "f16ef8ff";   // TODO --> add your api key about Movie here
     int ImdbVotes;
     ArrayList<String> actorsList;
     String rating;
@@ -37,20 +39,19 @@ public class Movie {
         return stringBuilder.toString();
     }
     public int getImdbVotesViaApi(String moviesInfoJson){
-        //TODO --> (This function must change and return the "ImdbVotes" as an Integer)
-        // NOTICE :: you are not permitted to convert this function to return a String instead of an int !!!
-        int ImdbVotes = 0;
-        return ImdbVotes;
+        JSONObject json =new JSONObject(moviesInfoJson);
+        String jsonstring = json.getString("imdbVotes");
+        return Integer.parseInt(jsonstring.replace("," , ""));
     }
 
     public String getRatingViaApi(String moviesInfoJson){
-        //TODO --> (This function must return the rating in the "Ratings" part
-        // where the source is "Internet Movie Database")  -->
-        String rating = "";
-        return rating;
+    JSONObject json = new JSONObject(moviesInfoJson);
+    return json.getString("imdbRating") + "/10";
     }
 
     public void getActorListViaApi(String movieInfoJson){
-        //TODO --> (This function must return the "Actors" in actorsList)
+        JSONObject json = new JSONObject(movieInfoJson);
+        System.out.println(json.getString("Actors"));
+
     }
 }
