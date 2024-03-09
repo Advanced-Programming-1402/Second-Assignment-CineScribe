@@ -4,6 +4,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -11,10 +12,20 @@ public class Actors {
     public static final String API_KEY = "3E/O/92DfeyQvzt20ijofw==fg6Q4oEcmC35fZFD  ";
     String netWorth;
     Boolean isAlive;
+    String nationality;
     ArrayList<Object> occupation;
+    double height;
+    String birthday;
+    int age;
 
-    public Actors(String netWorth, boolean isAlive){
-        //TODO --> (Write a proper constructor using the get_from_api functions)
+    public Actors(String netWorth, boolean isAlive, String nationality, ArrayList<Object> occupation, double height, String birthday, int age){
+        this.netWorth = netWorth;
+        this.age = age;
+        this.nationality = nationality;
+        this.height = height;
+        this.birthday = birthday;
+        this.occupation= occupation;
+        this.isAlive = isAlive;
     }
     @SuppressWarnings({"deprecation"})
     /**
@@ -28,12 +39,10 @@ public class Actors {
                     name.replace(" ", "+")+"&apikey="+API_KEY);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestProperty("X-Api-Key", API_KEY);
-            System.out.println(connection);
             if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
                 BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
                 String inputLine;
                 StringBuilder response = new StringBuilder();
-
                 while ((inputLine = in.readLine()) != null) {
                     response.append(inputLine);
                 }
@@ -61,8 +70,7 @@ public class Actors {
     public ArrayList<Object> getOccupationViaApi(String actorsInfoJson){
         JSONObject occupy = new JSONObject(actorsInfoJson);
         String[] str = occupy.getString("occupation").split("[,]");
-        for(Object i: str)
-            occupation.add(i);
+        occupation.addAll(Arrays.asList(str));
         return occupation;
     }
     public double getHeightViaApi(String actorsInfoJson){

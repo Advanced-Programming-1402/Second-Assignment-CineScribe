@@ -14,11 +14,14 @@ public class Movie {
     int ImdbVotes;
     ArrayList<Object> actorsList;
     String rating;
-
-    public Movie(ArrayList<Object> actorsList, String rating, int ImdbVotes){
+    String genre;
+    String about;
+    public Movie(ArrayList<Object> actorsList, String rating, int ImdbVotes,String genre, String about){
         this.actorsList = actorsList;
         this.ImdbVotes = ImdbVotes;
         this.rating = rating;
+        this.genre = genre;
+        this.about = about;
     }
 
     @SuppressWarnings("deprecation")
@@ -55,11 +58,19 @@ public class Movie {
         return imdb.getString("imdbRating") + "/10";
     }
 
-    public ArrayList<Object> getActorListViaApi(String movieInfoJson){
-        JSONObject imdb = new JSONObject(movieInfoJson);
+    public ArrayList<Object> getActorListViaApi(String moviesInfoJson){
+        JSONObject imdb = new JSONObject(moviesInfoJson);
         String []str = imdb.getString("Actors").split("[,]");
-        for(String i: str)
-            actorsList.add(i);
+        actorsList.addAll(Arrays.asList(str));
         return actorsList;
     }
+    public String getGenreViaApi(String moviesInfoJson){
+        JSONObject genre = new JSONObject(moviesInfoJson);
+        return genre.getString("Genre");
+    }
+    public String getAboutMovieViaApi(String moviesInfoJson){
+        JSONObject about = new JSONObject(moviesInfoJson);
+        return about.getString("Plot");
+    }
+
 }
