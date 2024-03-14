@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.HttpURLConnection;
-public class Actors {
+public class  Actors {
     public static final String API_KEY = "GhPzL0appx4sA67W7iZ7Xg==UDE2Rhw0JiBOP5b7";   // TODO --> add your api key about Actors here
     String netWorth;
     Boolean isAlive;
