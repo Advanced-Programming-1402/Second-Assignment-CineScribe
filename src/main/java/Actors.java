@@ -1,26 +1,30 @@
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.HttpURLConnection;
-public class Actors {
-    public static final String API_KEY = "Your API_KEY";   // TODO --> add your api key about Actors here
+public class  Actors {
+    public static final String API_KEY = "GhPzL0appx4sA67W7iZ7Xg==UDE2Rhw0JiBOP5b7";   // TODO --> add your api key about Actors here
     String netWorth;
     Boolean isAlive;
 
     public Actors(String netWorth, boolean isAlive){
         //TODO --> (Write a proper constructor using the get_from_api functions)
+        this.netWorth = netWorth;
+        this.isAlive = isAlive;
     }
     @SuppressWarnings({"deprecation"})
     /**
      * Retrieves data for the specified actor.
      * @param name for which Actor should be retrieved
-     * @return a string representation of the Actors info or null if an error occurred
+     * @return a string representation of the Actors info or null if an error occurr
      */
     public String getActorData(String name) {
         try {
             URL url = new URL("https://api.api-ninjas.com/v1/celebrity?name="+
-                    name.replace(" ", "+")+"&apikey="+API_KEY);
+            name.replace(" ", "+")+"&apikey="+API_KEY);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestProperty("X-Api-Key", API_KEY);
             System.out.println(connection);
@@ -34,7 +38,8 @@ public class Actors {
                 }
 
                 in.close();
-                return response.toString();
+                int jsonlngth = response.toString().length();
+                return response.toString().substring(1,jsonlngth-1);
             } else {
                 return "Error: " + connection.getResponseCode() + " " + connection.getResponseMessage();
             }
@@ -44,21 +49,30 @@ public class Actors {
         }
     }
     public double getNetWorthViaApi(String actorsInfoJson){
-        //TODO --> (This function must return the "NetWorth")
-        double result = 0.0;
-        return result;
+        JSONObject json =new JSONObject(actorsInfoJson);
+        return json.getDouble("net_worth");
+
     }
 
     public boolean isAlive(String actorsInfoJson){
-        //TODO --> (If your chosen actor is alive it must return true otherwise it must return false)
-        boolean statues = false;
-        return statues;
+    JSONObject json =new JSONObject(actorsInfoJson);
+    return  json.getBoolean("is_alive");
     }
 
     public String getDateOfDeathViaApi(String actorsInfoJson){
-        //TODO --> (If your chosen actor is deceased it must return the date of death)  -->
-        String date = "";
-        return date;
+        if(!isAlive(actorsInfoJson)){
+            JSONObject json =new JSONObject(actorsInfoJson);
+            return json.getString("death");
+        }
+        else return "";
+    }
+    public float height (String actorsInfoJson){
+        JSONObject json =new JSONObject(actorsInfoJson);
+        return json.getFloat(actorsInfoJson);
+    }
+    public  String gender (String actorsInfoJson){
+        JSONObject json =new JSONObject(actorsInfoJson);
+        return json.getString("gender");
     }
 
 }
