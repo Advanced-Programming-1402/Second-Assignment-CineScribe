@@ -18,13 +18,8 @@ public class Actors {
     String birthday;
     int age;
 
-    public Actors(String netWorth, boolean isAlive, String nationality, ArrayList<Object> occupation, double height, String birthday, int age){
+    public Actors(String netWorth, boolean isAlive){
         this.netWorth = netWorth;
-        this.age = age;
-        this.nationality = nationality;
-        this.height = height;
-        this.birthday = birthday;
-        this.occupation= occupation;
         this.isAlive = isAlive;
     }
     @SuppressWarnings({"deprecation"})

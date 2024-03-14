@@ -23,33 +23,23 @@ public class Main {
         if(user == 1) {
             System.out.println("Please enter the movie you wanna search");
             String userInput = input.next();
-            Movie movie = new Movie(new ArrayList<>(), "", 0, "", "");
+            Movie movie = new Movie(new ArrayList<>(), "", 0);
             String data = movie.getMovieData(userInput);
             boolean loop = true;
             while(loop) {
                 System.out.println("1.IMDB Rating\n2.Genre\n3.Actors\n4.IMDB Votes\n5.About Movie\n6.Exit");
                 int in = input.nextInt();
                 switch (in) {
-                    case 1:
-                        System.out.println(rating = movie.getRatingViaApi(data));
-                        break;
-                    case 2:
-                        System.out.println(genre = movie.getGenreViaApi(data));
-                        break;
-                    case 3:
+                    case 1 -> System.out.println(rating = movie.getRatingViaApi(data));
+                    case 2 -> System.out.println(genre = movie.getGenreViaApi(data));
+                    case 3 -> {
                         actorsList = movie.getActorListViaApi(data);
                         for (Object i : actorsList)
                             System.out.println(i);
-                        break;
-                    case 4:
-                        System.out.println(ImdbVotes = movie.getImdbVotesViaApi(data));
-                        break;
-                    case 5:
-                        System.out.println(about = movie.getAboutMovieViaApi(data));
-                        break;
-                    case 6:
-                        loop = false;
-                        break;
+                    }
+                    case 4 -> System.out.println(ImdbVotes = movie.getImdbVotesViaApi(data));
+                    case 5 -> System.out.println(about = movie.getAboutMovieViaApi(data));
+                    case 6 -> loop = false;
                 }
                 if(in != 6) {
                     System.out.println("Press Any Kay To GO Back...");
@@ -60,7 +50,7 @@ public class Main {
         if(user == 2){
             System.out.println("Please enter the actor you wanna search");
             String userIn = input.next();
-            Actors actor = new Actors("", true, "", null, 0, "", 0);
+            Actors actor = new Actors("", true);
             String data = actor.getActorData(userIn);
             boolean loop = true;
             while(loop) {

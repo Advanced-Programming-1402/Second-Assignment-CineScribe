@@ -16,12 +16,10 @@ public class Movie {
     String rating;
     String genre;
     String about;
-    public Movie(ArrayList<Object> actorsList, String rating, int ImdbVotes,String genre, String about){
+    public Movie(ArrayList<Object> actorsList, String rating, int ImdbVotes){
         this.actorsList = actorsList;
         this.ImdbVotes = ImdbVotes;
         this.rating = rating;
-        this.genre = genre;
-        this.about = about;
     }
 
     @SuppressWarnings("deprecation")
