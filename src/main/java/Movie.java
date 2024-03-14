@@ -14,8 +14,6 @@ public class Movie {
     int ImdbVotes;
     ArrayList<Object> actorsList;
     String rating;
-    String genre;
-    String about;
     public Movie(ArrayList<Object> actorsList, String rating, int ImdbVotes){
         this.actorsList = actorsList;
         this.ImdbVotes = ImdbVotes;
@@ -58,7 +56,7 @@ public class Movie {
 
     public ArrayList<Object> getActorListViaApi(String moviesInfoJson){
         JSONObject imdb = new JSONObject(moviesInfoJson);
-        String []str = imdb.getString("Actors").split("[,]");
+        String []str = imdb.getString("Actors").split(",");
         actorsList.addAll(Arrays.asList(str));
         return actorsList;
     }

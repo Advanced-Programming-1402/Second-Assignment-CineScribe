@@ -12,11 +12,7 @@ public class Actors {
     public static final String API_KEY = "3E/O/92DfeyQvzt20ijofw==fg6Q4oEcmC35fZFD  ";
     String netWorth;
     Boolean isAlive;
-    String nationality;
     ArrayList<Object> occupation;
-    double height;
-    String birthday;
-    int age;
 
     public Actors(String netWorth, boolean isAlive){
         this.netWorth = netWorth;
@@ -64,7 +60,7 @@ public class Actors {
     }
     public ArrayList<Object> getOccupationViaApi(String actorsInfoJson){
         JSONObject occupy = new JSONObject(actorsInfoJson);
-        String[] str = occupy.getString("occupation").split("[,]");
+        String[] str = occupy.getString("occupation").split(",");
         occupation.addAll(Arrays.asList(str));
         return occupation;
     }

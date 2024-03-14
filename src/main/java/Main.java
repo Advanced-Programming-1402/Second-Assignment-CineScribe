@@ -4,10 +4,6 @@ import java.util.Objects;
 import java.util.Scanner;
 public class Main {
     static ArrayList<Object> actorsList;
-    static String rating;
-    static String genre;
-    static String about;
-    static int ImdbVotes;
     static ArrayList<Object> occupation;
     static boolean exit = false;
     public static void main(String[] args) throws IOException {
@@ -30,16 +26,29 @@ public class Main {
                 System.out.println("1.IMDB Rating\n2.Genre\n3.Actors\n4.IMDB Votes\n5.About Movie\n6.Exit");
                 int in = input.nextInt();
                 switch (in) {
-                    case 1 -> System.out.println(rating = movie.getRatingViaApi(data));
-                    case 2 -> System.out.println(genre = movie.getGenreViaApi(data));
-                    case 3 -> {
+                    case 1 :
+                        System.out.println(movie.getRatingViaApi(data));
+                        break;
+                    case 2 :
+                        System.out.println(movie.getGenreViaApi(data));
+                        break;
+                    case 3 :
                         actorsList = movie.getActorListViaApi(data);
                         for (Object i : actorsList)
                             System.out.println(i);
-                    }
-                    case 4 -> System.out.println(ImdbVotes = movie.getImdbVotesViaApi(data));
-                    case 5 -> System.out.println(about = movie.getAboutMovieViaApi(data));
-                    case 6 -> loop = false;
+                        break;
+                    case 4 :
+                        System.out.println(movie.getImdbVotesViaApi(data));
+                        break;
+                    case 5 :
+                        System.out.println(movie.getAboutMovieViaApi(data));
+                        break;
+                    case 6 :
+                        loop = false;
+                        break;
+                    default:
+                        System.out.println("1.IMDB Rating\n2.Genre\n3.Actors\n4.IMDB Votes\n5.About Movie\n6.Exit");
+                        in = input.nextInt();
                 }
                 if(in != 6) {
                     System.out.println("Press Any Kay To GO Back...");
@@ -86,6 +95,9 @@ public class Main {
                     case 8:
                         loop = false;
                         break;
+                    default:
+                        System.out.println("1.Net worth\n2.Nationality\n3.Occupation\n4.Birthday\n5.Height\n6.Age\n7.Living situation\n8.Exit");
+                        in = input.nextInt();
                 }
                 if(in != 8) {
                     System.out.println("Press Any Kay To GO Back...");
