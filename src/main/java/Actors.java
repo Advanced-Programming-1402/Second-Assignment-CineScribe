@@ -3,13 +3,23 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.HttpURLConnection;
+import org.json.JSONObject;
 public class Actors {
-    public static final String API_KEY = "Your API_KEY";   // TODO --> add your api key about Actors here
-    String netWorth;
-    Boolean isAlive;
+    public static final String API_KEY = "lx3V7SSX0UGbFy8DibPSfQ==fbNjG3un4zdTPqV3";
+    double netWorth;
+    String date_birth;
+    String gender;
+    double height;
+    Boolean status;
+    String date;
 
-    public Actors(String netWorth, boolean isAlive){
-        //TODO --> (Write a proper constructor using the get_from_api functions)
+    public Actors(double netWorth, String date_birth, String gender, double height, boolean status, String date){
+        this.netWorth = netWorth;
+        this.date_birth = date_birth;
+        this.gender = gender;
+        this.height = height;
+        this.status = status;
+        this.date = date;
     }
     @SuppressWarnings({"deprecation"})
     /**
@@ -34,7 +44,7 @@ public class Actors {
                 }
 
                 in.close();
-                return response.toString();
+                return response.toString().substring(1, response.toString().length() - 1);
             } else {
                 return "Error: " + connection.getResponseCode() + " " + connection.getResponseMessage();
             }
@@ -45,20 +55,96 @@ public class Actors {
     }
     public double getNetWorthViaApi(String actorsInfoJson){
         //TODO --> (This function must return the "NetWorth")
-        double result = 0.0;
-        return result;
+        double netWorth = 0.0;
+        try {
+            JSONObject netWorthObject = new JSONObject(actorsInfoJson);
+            netWorth = netWorthObject.getDouble("net_worth");
+            System.out.println("Net Worth: " + netWorth);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return netWorth;
+    }
+
+    public String getDataOfBirth(String actorsInfoJson)
+    {
+        String date_birth = "";
+        try {
+            JSONObject Date = new JSONObject(actorsInfoJson);
+            if(Date.has("birthday"))
+            {
+                date_birth = Date.getString("birthday");
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return "Birthday: " + date_birth;
+    }
+    public String getGender(String moviesInfoJson)
+    {
+        String gender = "";
+        try
+        {
+            JSONObject Actors_Gender = new JSONObject(moviesInfoJson);
+            if(Actors_Gender.has("genre"))
+            {
+                gender = Actors_Gender.getString("Gender");
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return "Gender: " + gender;
+    }
+
+    public double getHeight(String actorsInfoJson)
+    {
+        double height = 0.0;
+        try
+        {
+            JSONObject height_object = new JSONObject(actorsInfoJson);
+            height = height_object.getDouble("height");
+            System.out.println("Height_Of_Person: " + height);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return height;
     }
 
     public boolean isAlive(String actorsInfoJson){
-        //TODO --> (If your chosen actor is alive it must return true otherwise it must return false)
-        boolean statues = false;
-        return statues;
+        boolean status = false;
+        try {
+            JSONObject live = new JSONObject(actorsInfoJson);
+            status = live.getBoolean("is_alive");
+            System.out.println("Is Alive: "+ status);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return status;
     }
 
     public String getDateOfDeathViaApi(String actorsInfoJson){
         //TODO --> (If your chosen actor is deceased it must return the date of death)  -->
         String date = "";
+        try {
+            JSONObject Date_Of_Death = new JSONObject(actorsInfoJson);
+            if(Date_Of_Death.has("death"))
+            {
+                date = Date_Of_Death.getString("death");
+                System.out.println("death: "+ date);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return date;
     }
 
-}
+
+    }
+

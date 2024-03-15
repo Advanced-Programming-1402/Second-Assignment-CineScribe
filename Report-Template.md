@@ -1,57 +1,56 @@
 # Project Title
 
-Simple overview of use/purpose.
+Movie and Actor database
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+In this program, you enter the name of the movie or actor and receive the information of them.
 
 ## Getting Started
-
+ArrayList, JSONArray, JSONNObject
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+you shoud get Gradle version 8.5 in this program you nead thid libraries:
+ArrayList, JSONObject, IOException, InputStreamReader, net.URLConnection, io.BufferedReader and net.HttpURLConnection.
 
 ### Installing
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+If you see this program you should install intellij and if you run this program you should install Gradle too.
 
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
+After installing the program, enter the program file and open the main part, then press the green triangle next to the main function and the program will run like this.
+
 
 ## Help
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+To learn better "API", you can refer to Jadi's YouTube channel. You can use the following sites to learn programing better.
+Code School... .
 
 ## Authors
 
 Contributors names and contact info
 
-ex. Dominique Pizzie  
+Mohaddeseh Ganjkhanlou: Student of SBU. ex. Dominique Pizzie  
 ex. [@DomPizzie](https://twitter.com/dompizzie)
 
 ## Version History
 
 * 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
+  * Various bug fixes and optimizations
+  * See [commit change]() or See [release history]()
 * 0.1
-    * Initial Release
+  * Initial Release
 
 ## License
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+https://omdbapi.com/ (for movie)
 
+https://api-ninjas.com/api/celebrity  (for celebrity)
+
+https://www.bing.com/videos/riverview/relatedvideo?&q=how+to+take+API+with+JSON+in+java+on+grdle&&mid=D193646A9484D3F83B3DD193646A9484D3F83B3D&mmscn=mtsc&aps=0&FORM=VRDGAR
+
+https://www.bing.com/videos/riverview/relatedvideo?q=%D9%88%DB%8C%D8%AF%DB%8C%D9%88%D9%87%D8%A7%DB%8C%20%D8%AC%D8%A7%D8%AF%DB%8C%20%D8%AF%D8%B1%20%DB%8C%D9%88%D8%AA%DB%8C%D9%88%D8%A8&mid=07413B5CF9A564AAFA9D07413B5CF9A564AAFA9D&ajaxhist=0
 ## Acknowledgments
 
 Inspiration, code snippets, etc.
