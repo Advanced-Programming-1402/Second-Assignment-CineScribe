@@ -1,56 +1,44 @@
 # Project Title
 
-Simple overview of use/purpose.
+Search Movie & Actor.
 
 ## Description
 
-An in-depth paragraph about your project and overview of use.
+In this program, you can enter the name of your favorite actor and get information about them.
 
 ## Getting Started
 
+...
+
 ### Dependencies
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+You should get Gradle version:8.6 in this program you need this libraries:ArrayList, JSONArray, JSONObject, IOException, InputStreamReader, net.URLConnection, io.BufferedReader, net.HttpURLConnection.
 
 ### Installing
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+If you see this program you should install intilij. If you run this program you should install Gradle too.
 
 ### Executing program
 
-* How to run the program
-* Step-by-step bullets
-```
-code blocks for commands
-```
+After installing the program, enter the program file and open the main part, then press the green triangle next to the main function and the program will run like this.
 
 ## Help
 
-Any advise for common problems or issues.
-```
-command to run if program contains helper info
-```
+To learn better "API", you can refer to Jadi's YouTube channel. You can use the following sites to learn programming better.
+KHAN ACADEMY, CODE SCHOOL, COURSERA.
 
 ## Authors
 
-Contributors names and contact info
-
-ex. Dominique Pizzie  
-ex. [@DomPizzie](https://twitter.com/dompizzie)
+Sarina Hassani.
 
 ## Version History
 
-* 0.2
-    * Various bug fixes and optimizations
-    * See [commit change]() or See [release history]()
-* 0.1
-    * Initial Release
+...
 
 ## License
 
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+ https://omdbapi.com (for Movie) 
+ and https://api-ninjas.com/api/celebrity (for actor)
 
 ## Acknowledgments
 
